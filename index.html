@@ -1,0 +1,125 @@
+
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
+  <!-- style tag is placed here because chrome doesn't load the style.css file -->
+  <style type="text/css">
+      @font-face {
+        font-family: 'Indie Flower';
+        font-style: normal;
+        font-weight: 400;
+        src: local('Indie Flower'), local('IndieFlower'), url(https://fonts.gstatic.com/s/indieflower/v8/10JVD_humAd5zP2yrFqw6hampu5_7CjHW5spxoeN3Vs.woff2) format('woff2');
+      }
+
+    button {
+      padding: 10px;
+      background-color: white;
+      border: 2px solid #C0392B;
+      border-radius: 9px;
+      font-size: 12px;
+      color: #C0392B;
+      cursor: pointer;
+    }
+
+      button:focus {
+        outline: none;
+      }
+
+      .container{
+        height: 0;
+      margin-top: 59px;
+        padding-top: 60%;
+        position: relative;
+      }
+
+      svg {
+        height: 65%;
+        left:0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+      }
+
+      div#btn {
+        text-align: center;
+      }
+
+      .shirtCls  {
+        fill: #E5E7E9;
+      }
+
+      .text1 {
+        fill:#338DFF;
+        font-size:5px;
+        font-weight:bold;
+        font-family: 'Indie Flower', cursive;
+      }
+
+      .text2 {
+        fill:#717D7E;
+        font-size:5px;
+        font-weight:bold;
+        font-family: 'Helvetica Neue', 'Helvetica', 'Arial-Unicode', 'Arial', 'Sans-serif'
+      }
+
+       @media (max-width: 700px) {
+        body, canvas {
+            background-color: #FAD7A0;
+        }
+
+        rect {
+          fill:#3498DB;
+        }
+
+        .text1 {
+          fill:#C0392B;
+        }
+
+        .text2 {
+          fill:#229954;
+        }
+
+        button {
+          padding: 8px;
+          border: 2px solid #E5E7E9;
+
+          font-size: 10px;
+          color: #229954;
+        }
+
+      }
+
+  </style>
+</head>
+
+<body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+ <div id="btn">
+    <button id="download">Download as PNG </button>
+  </div>
+
+ <div class="container">
+
+	 <svg id="tshirtsvg"  width="500px" height="500px" presserveAspectRatio="xMinyMid slice" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 100 125" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+
+		<circle fill="#F39C12" cx="60" cy="65" r="14" />
+		<rect fill="#C0392B" x="35" y="58" width="30" height="20" rx="0" ry="0"></rect>
+		<g>
+			<path id="backg" class="shirtCls" fill="#E5E7E9" d="M95.6,24.9l-16.9-14c-0.2-0.2-0.4-0.2-0.7-0.3L63.3,9.9c-0.1,0-0.2,0-0.3,0c-0.1,0-0.1,0-0.2,0c-0.6,0-1.1,0.5-1.1,1.1  c0,6.4-5.2,11.6-11.6,11.6S38.6,17.4,38.6,11c0-0.6-0.5-1.1-1.1-1.1c-0.1,0-0.3,0-0.4,0.1C37,10,36.9,9.9,36.7,9.9L22,10.6  c-0.2,0-0.5,0.1-0.7,0.3l-16.9,14c-0.4,0.3-0.5,0.9-0.3,1.3l8,17.4c0.1,0.3,0.3,0.5,0.6,0.6c0.3,0.1,0.6,0.1,0.8,0l8.1-3.9v50.4  c0,0.6,0.5,1.1,1.1,1.1h27h0.4h27c0.6,0,1.1-0.5,1.1-1.1V40.3l8.1,3.9c0.3,0.1,0.6,0.1,0.8,0c0.3-0.1,0.5-0.3,0.6-0.6l8-17.4  C96.1,25.8,96,25.2,95.6,24.9z M86.3,41.7l-8.6-4.1c-0.3-0.2-0.7-0.1-1.1,0.1c-0.3,0.2-0.5,0.6-0.5,0.9v51.1H50.2h-0.4H23.9V38.5  c0-0.4-0.2-0.7-0.5-0.9c-0.3-0.2-0.7-0.2-1.1-0.1l-8.6,4.1L6.5,26.1l16-13.3l14.1-0.6c0.6,7.1,6.5,12.6,13.7,12.6  c7.2,0,13.1-5.6,13.7-12.6l13.7,0.6l16,13.3L86.3,41.7z"/>
+		</g>
+		<text x="30" y="35" class="text1">looking good!!</text>
+		<text x="0" y="100" class="text2">some text here</text>
+
+	</svg>
+
+</div>
+
+
+<script src="script.js"></script>
+</body>
+</html>
+
