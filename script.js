@@ -3,25 +3,32 @@ var doctype = '<?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C
 //inspect the CSSStyleSheet
 function getCss(element){
 	var match, css = "";
+  console.log(match);
+  console.log(css);
   var fontsQueue = [];
 	var sheets = document.styleSheets;
 
     // get css definition
     for (var i = 0; i < sheets.length; i++) {
     	var rules = sheets[i].cssRules;
-
+          //if the cssstylesheet contain styles keep going and lets loop
     	 if (rules !== null) {
-
+          //find only the class that is used to style the svg element
         	for (var j = 0, match; j < rules.length; j++, match = null) {
             	var rule = rules[j];
+              //grab the property selectorText from the rule
             	var selectorText;
               selectorText = rule.selectorText;
+              //the selectorText belong to the element with svg
             	match = element.querySelector(selectorText);
 
-            	// check if css class in svg
+            	// the class is part of the svg element, grab the style of the class
             	 if (match) {
+                  //identify whats the element with the matched class
 		              var selector =  rule.selectorText;
+                  //get the style of the element
 		              var cssText  =  rule.style.cssText;
+                  //add the class with the style to the css variable
 		              css += selector + " { " + cssText + " }\n";
           		} //end if
                 else if(rule.cssText.match(/^@font-face/)) {
@@ -29,38 +36,41 @@ function getCss(element){
                   var fontUrlRegexp = /url\(["']?(.+?)["']?\)/;
                   var fontUrlMatch = rule.cssText.match(fontUrlRegexp);
 
-                  var externalFontUrl = (fontUrlMatch && fontUrlMatch[1]) || '';
+                  css += rule.cssText + "{" + fontUrlMatch + "}" + '\n';
+                  console.log(css);
+
+                  /*var externalFontUrl = (fontUrlMatch && fontUrlMatch[1]) || '';
                   var fontUrlIsDataURI = externalFontUrl.match(/^data:/);
                   if (fontUrlIsDataURI) {
                     externalFontUrl = '';
-                  }
+                  }*/
 
-                  if (externalFontUrl) {
+                  /*if (externalFontUrl) {
                     fontsQueue.push({
                       text: rule.cssText,
 
                       fontUrlRegexp: fontUrlRegexp,
                       format: getFontMimeTypeFromUrl(externalFontUrl),
                       url: externalFontUrl
-                    });
+                    });*/
                   }
-                  else {
+                  /*else {
                   // otherwise, use previous logic
                   css += rule.cssText + '\n';
+                }*/
+                //check what is the width if the media query exist
+                 else if(rule.cssText.match(/^@media/) && window.matchMedia(rule.media.mediaText).matches) {
+                    //current user media query
+                    css += rule.cssText + '\n';
+
                 }
               }
-              //check what is the width if the media query exist
-               else if(rule.cssText.match(/^@media/) && window.matchMedia(rule.media.mediaText).matches) {
-                  //current user media query
-                  css += rule.cssText + '\n';
 
-              }
-
-            }
+         //    }
 	        }
 
 		  }
-
+      console.log(css);
     return css;
 }
 //find out which font format the url is using
